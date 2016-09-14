@@ -1,0 +1,79 @@
+html, body{
+    padding: 0;
+    margin: 0;
+    background-color: #000;
+    color: #fff;
+    height: 100%;
+}
+body{
+    min-height: 100%;
+    font-family: "Helvetica Neue",sans-serif;
+    font-weight: 100;
+}
+::selection {
+  background: #fff; /* WebKit/Blink Browsers */
+}
+::-moz-selection {
+  background: #fff; /* Gecko Browsers */
+}
+.white{
+    color: #fff;
+    border: 2px solid white;
+}
+
+.black{
+    color:#000;
+    border: 2px solid black;
+}
+.bpm{
+    float: right;
+    margin: 8px 14px;
+    padding: 8px;
+}
+.nav{
+    position: fixed;
+    bottom: 4px;
+    text-align: center;
+    left: 50%;
+    margin-left: -186px;
+}
+.nav ul{
+    list-style: none;
+}
+.nav li{
+    display: inline;
+    padding: 10px;
+    border: 2px solid white;
+    margin: 2px;
+    cursor: pointer;
+}
+.nav li:hover, .selected{
+    background-color: white;
+    color: #000;
+}
+.circle{
+    display: none;
+    background: white;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    height: 200px;
+    width: 200px;
+    margin-left: -100px;
+    margin-top: -100px;
+    border-radius: 50px 50px 50px 50px;
+    animation-name: rotate;
+    animation-duration: 0.2s;
+    animation-iteration-count: infinite;
+    animation-timing-function: linear;
+}
+.show{
+    display: block;
+}
+.hide{
+    display: none;
+}
+@keyframes rotate {
+    from {transform: rotate(0deg);}
+    to {transform: rotate(360deg);}
+}
