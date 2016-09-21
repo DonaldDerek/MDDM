@@ -6,6 +6,7 @@
     var toggleCircle = false;
     var multCircle = 1;
     var colorCircle = true;
+    var circleSpeed = 0.2;
 
     var computeAvg = function(timeDiff){
             for(var i = 0; i < timeDiff.length; i++){
@@ -44,7 +45,7 @@
     var startBlip = function(BPM){
         clearInterval(startAnimation);
         document.getElementById('one').className = 'selected';
-        startAnimation = setInterval(blip, 60000/BPM)
+        startAnimation = setInterval(blip, 30000/BPM)
     }
 
     var blipScreen = function(state){
@@ -92,6 +93,16 @@
             case 'ArrowDown':
                 multCircle -= 0.1;
                 modCircle(multCircle);
+                break;
+            case 'ArrowLeft':
+                circleSpeed = Math.round((circleSpeed + 0.01) * 1e12) / 1e12
+                console.log(circleSpeed);
+                document.querySelector('.circle').setAttribute("style","animation-duration: "+circleSpeed+"s");
+                break;
+            case 'ArrowRight':
+                circleSpeed = Math.round((circleSpeed - 0.01) * 1e12) / 1e12
+                console.log(circleSpeed);
+                document.querySelector('.circle').setAttribute("style","animation-duration: "+circleSpeed+"s");
                 break;
             case ' ':
                 toggleCircle = !toggleCircle;
